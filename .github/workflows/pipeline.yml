@@ -61,5 +61,7 @@ jobs:
         run: 'heroku git:remote --app $HEROKU_APP_NAME'
         env:
           HEROKU_APP_NAME: '${{ secrets.HEROKU_APP_NAME }}'
+      - name: Heroku stack
+        run: 'heroku stack:set heroku-20'
       - name: Push to Heroku & Deploy
         run: 'git push heroku HEAD:main --force'
